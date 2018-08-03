@@ -1,0 +1,56 @@
+#page-grid {
+  min-height: 100%;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 50px auto 50px;
+}
+/*--------- header-секція -----------------*/
+#header-grid {
+  background-color: #3D80CC;
+  display: grid;
+  grid-template-columns: 20px 250px 30px 35px 120px auto 40px 40px 20px;
+}
+#fileName{
+  grid-column: 2;
+  background-color: wheat;
+}
+#fileNameButton{
+  grid-column: 3;
+  background-color: darkgray;
+}
+#sendToConverterButton{
+  grid-column: 5;
+  background-color: #cccccc;
+}
+#cog{
+  grid-column: 7;
+  background-color: tomato;
+}
+#help{
+  grid-column: 8;
+  background-color: wheat;
+}
+
+/*--------- main-секція -----------------*/
+#main-grid {
+  display: grid;
+  background-color: #3D80CC;
+  grid-template-columns: 20px auto 20px;
+}
+#text-table{
+  grid-column: 2;
+  background-color: #cccccc;
+  height: 1000px;
+}
+
+
+#footer-grid {
+  background-color: #3D80CC;
+}
+
+.dummy-block{
+  background-color: white;
+  /*border: 1px  black;*/
+  height: auto;
+  vertical-align: middle;
+}
