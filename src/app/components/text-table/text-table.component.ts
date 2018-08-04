@@ -7,16 +7,21 @@ import {DataService} from '../../shared/data-service';
   styleUrls: ['./text-table.component.css']
 })
 export class TextTableComponent implements OnInit {
-  planeTextTable;
+  plainTextList;
 
 
   constructor(private dataservice: DataService) {
   }
 
   ngOnInit() {
-    this.planeTextTable = this.dataservice.testsList[0].question;
-    // console.log(this.planeTextTable);
-
+    this.getPlainTests();
   }
 
+  /**
+   * обращается к dataservice за получением текстового варианта теста
+   */
+  getPlainTests() {
+    this.plainTextList = this.dataservice.getPlainTests();
+    console.log(this.plainTextList);
+  }
 }
