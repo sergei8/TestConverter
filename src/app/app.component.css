@@ -10,6 +10,7 @@
   background-color: #3D80CC;
   display: grid;
   grid-template-columns: 20px 250px 30px 35px 120px auto 40px 40px 20px;
+  align-self: center;
 }
 
 #fileName {

@@ -10,7 +10,7 @@ export class DataService {
   }
 
   /**
-   * 
+   *
    * @return {Array<TestItem>}
    */
   getPlainTests() {

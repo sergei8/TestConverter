@@ -21,7 +21,7 @@ export class TextTableComponent implements OnInit {
    * обращается к dataservice за получением текстового варианта теста
    */
   getPlainTests() {
-    this.plainTextList = this.dataservice.getPlainTests();
+    this.plainTextList = this.dataservice.getPlainTests()[0].question;
     console.log(this.plainTextList);
   }
 }

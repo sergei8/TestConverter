@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {ChooseFileComponent} from './components/header/choose-file/choose-file.component';
 
 @Component({
   selector: 'app-root',
