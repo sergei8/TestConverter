@@ -3,5 +3,6 @@ export interface TestItem {
   answers: Array<string>;         /* список ответов */
   answesrQty?: number;            /* количество ответов */
   correctAnswerNumber?: number;   /* номер правильного ответа */
-  status?: string;                /* */
+  // todo разработать такую процедуру
+  status?: string;                /*устанавливается в процедуре интеллектуальной проверки*/
 }

@@ -1,6 +1,20 @@
 
-<!--{{plainTextList}}-->
+<!--
+<table border="1">
+  <tr *ngFor="let item of plainTextList; let i = index">
+    <td>{{i+1}}</td>
+    <td>
+      {{item.question}}<br>
+      <ol *ngFor="let answer of item.answers">
+        <li>{{answer}}</li>
+      </ol>
+    </td>
+  </tr>
+</table>
+-->
 
-<div *ngFor="let item of plainTextList">
-  {{item}}
+
+<div *ngFor="let item of plainTextList; let i=index">
+  <app-test-item [testItem]="item" [number]="i+1"></app-test-item>
+  <hr>
 </div>

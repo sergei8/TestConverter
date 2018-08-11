@@ -26,6 +26,7 @@ export class DataService {
           return result.value;
         });
       const plainArray = await this.convertToArray(plainText);
+      console.log(plainArray);
       this.testsList = await this.convertToTest(plainArray);
       console.log(this.testsList);
       this.plainText = plainArray;
@@ -60,7 +61,14 @@ export class DataService {
    */
   convertToArray(plainText: string): Promise<string[]> {
     return new Promise(resolve => {
-      resolve(_.compact(plainText.split('\n')));
+      // делаем массив
+      let textArray = plainText.split('\n');
+      // преобразуем пустые строки в ''
+      textArray = _.map(textArray, (x) => {
+        return x.trim().length === 0 ? '' : x;
+      });
+      // возвращаем сжатый массив
+      resolve(_.compact(textArray));
     });
   }
 

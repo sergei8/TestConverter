@@ -17,6 +17,6 @@ export class TextTableComponent implements OnInit, DoCheck {
   }
 
   ngDoCheck() {
-    this.plainTextList = this.dataservice.plainText;
+    this.plainTextList = this.dataservice.testsList;
   }
 }
