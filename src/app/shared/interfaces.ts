@@ -1,5 +1,7 @@
 export interface TestItem {
-  question: string;
-  answers: Array<string>;
-  status?: string;
+  question: string;               /* вопрос */
+  answers: Array<string>;         /* список ответов */
+  answesrQty?: number;            /* количество ответов */
+  correctAnswerNumber?: number;   /* номер правильного ответа */
+  status?: string;                /* */
 }

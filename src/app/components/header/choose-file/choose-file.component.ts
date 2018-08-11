@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ElementRef} from '@angular/core';
+import {DataService} from '../../../shared/data-service';
+import {InputFileReaderComponent} from './input-file-reader/input-file-reader.component';
 
 @Component({
   selector: 'app-choose-file',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChooseFileComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dataservice: DataService) {
+  }
 
   ngOnInit() {
+    // this.dataservice.getPlainTests('docfile.doc');
+  }
+
+  /**
+   * обращается к dataservice за получением сериализованного варианта теста
+   */
+  getPlainTests(fileName) {
+    // this.dataservice.testsList = this.dataservice.getPlainTests(fileName);
+    // console.log(this.dataservice.testsList);
   }
 
 }

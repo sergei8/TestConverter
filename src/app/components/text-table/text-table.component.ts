@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, DoCheck} from '@angular/core';
 import {DataService} from '../../shared/data-service';
 
 @Component({
@@ -6,22 +6,17 @@ import {DataService} from '../../shared/data-service';
   templateUrl: './text-table.component.html',
   styleUrls: ['./text-table.component.css']
 })
-export class TextTableComponent implements OnInit {
-  plainTextList;
+export class TextTableComponent implements OnInit, DoCheck {
+  public plainTextList;
 
 
   constructor(private dataservice: DataService) {
   }
 
   ngOnInit() {
-    this.getPlainTests();
   }
 
-  /**
-   * обращается к dataservice за получением текстового варианта теста
-   */
-  getPlainTests() {
-    this.plainTextList = this.dataservice.getPlainTests()[0].question;
-    console.log(this.plainTextList);
+  ngDoCheck() {
+    this.plainTextList = this.dataservice.plainText;
   }
 }
