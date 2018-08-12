@@ -5,31 +5,30 @@ import * as _ from 'underscore';
 @Injectable()
 export class DataService {
 
-  public testsList: Array<TestItem>;
-  public plainText: any;
+  public testsList: Array<TestItem>; // структура для вывода в браузер
+  // public plainText: any; // содержимое теста в текстовом форматн для сохранения
+  public fileName: string;  // имя конвертируемого файла (=имени резудьтатного)
 
   constructor() {
   }
 
   /**
-   *
+   * Читает docx-файл, преобразует его в текстовый формат, затем в
+   * структуру для вывода в окно браузера
    * @return {Array<TestItem>}
    */
   async getPlainTests(fileName: File) {
-    // прочитать выбранный в fileName docx-файл
 
     try {
+      this.fileName = fileName.name;
       const plainBuffer = await this.getFile(fileName);
+      // преобразуем docx-файл в текстовый для дальнейщей его записи на диск
       const plainText = await mammoth.extractRawText({arrayBuffer: plainBuffer})
         .then(result => {
-          // console.log(result.value);
           return result.value;
         });
       const plainArray = await this.convertToArray(plainText);
-      console.log(plainArray);
       this.testsList = await this.convertToTest(plainArray);
-      console.log(this.testsList);
-      this.plainText = plainArray;
 
     } catch (e) {
       console.log(e.message);
@@ -62,9 +61,9 @@ export class DataService {
   convertToArray(plainText: string): Promise<string[]> {
     return new Promise(resolve => {
       // делаем массив
-      let textArray = plainText.split('\n');
+      let textArray: Array<string> = plainText.split('\n');
       // преобразуем пустые строки в ''
-      textArray = _.map(textArray, (x) => {
+      textArray = _.map(textArray, (x: string): string => {
         return x.trim().length === 0 ? '' : x;
       });
       // возвращаем сжатый массив

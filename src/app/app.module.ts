@@ -8,6 +8,7 @@ import { TextTableComponent } from './components/text-table/text-table.component
 import { ChooseFileComponent } from './components/header/choose-file/choose-file.component';
 import { InputFileReaderComponent } from './components/header/choose-file/input-file-reader/input-file-reader.component';
 import { TestItemComponent } from './components/text-table/test-item/test-item.component';
+import { SaveTestComponent } from './components/header/save-test/save-test.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { TestItemComponent } from './components/text-table/test-item/test-item.c
     TextTableComponent,
     ChooseFileComponent,
     InputFileReaderComponent,
-    TestItemComponent
+    TestItemComponent,
+    SaveTestComponent
   ],
   imports: [
     BrowserModule,

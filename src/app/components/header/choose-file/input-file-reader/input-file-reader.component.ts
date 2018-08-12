@@ -18,6 +18,7 @@ export class InputFileReaderComponent {
    * @param $event - содержит ссылку на файловый объект
    */
   fileSelected($event: any): void {
+    console.log($event.target.files[0].name);
     this.dataservice.getPlainTests($event.target.files[0]);
   }
 
