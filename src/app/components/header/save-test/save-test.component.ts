@@ -50,7 +50,12 @@ export class SaveTestComponent {
     // проход по всем символам маски и их экранирование в строке `item`
     mask.forEach(symbol => {
       const regExp = new RegExp(symbol, 'gi');
-      item = item.replace(regExp, `\\${symbol}`);
+      try {
+        item = item.replace(regExp, `\\${symbol}`);
+      } catch (e) {
+        console.log(item);
+        alert(`Что-то пошло не так:\n${e}`);
+      }
     });
     return item;
   }
