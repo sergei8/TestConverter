@@ -4,5 +4,6 @@ export interface TestItem {
   answesrQty?: number;            /* количество ответов */
   correctAnswerNumber?: number;   /* номер правильного ответа */
   // todo разработать такую процедуру
-  status?: string;                /*устанавливается в процедуре интеллектуальной проверки*/
+  status?: boolean;                /*устанавливается в процедуре интеллектуальной проверки*/
+  statusMessage?: string;          /* сообщение проверки*/
 }
