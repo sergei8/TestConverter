@@ -13,14 +13,32 @@ export class SaveTestComponent implements OnInit {
   }
 
   saveFile() {
-    console.log(this.dataservice.testsList);
-    const proba: any = this.dataservice.plainText;
-    const blob = new Blob([proba], {type: 'text\plain'});
+    const test: any = this.convertToMoodle();
+    console.log(test);
+    const blob = new Blob([test], {type: 'text\plain'});
     const testFileName = this.dataservice.fileName.split('.')[0] + '.txt';
     saveAs(blob, testFileName);
   }
 
   ngOnInit() {
   }
+
+  /**
+   *
+   * @return {string}
+   */
+  convertToMoodle(): string {
+    let test = '';
+    this.dataservice.testsList.forEach(item => {
+      const question = `:: ${item.question}`;
+      let answers = `=${item.answers[0]}\n`;
+      for (let i = 1; i < item.answers.length; i++) {
+        answers += `~${item.answers[i]}\n`;
+      }
+      test += `${question}\n { ${answers} }\n`;
+    });
+    return test;
+  }
+
 
 }
