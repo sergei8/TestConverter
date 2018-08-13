@@ -47,7 +47,7 @@ export class SaveTestComponent {
    */
   private escapeSpesialSymbols(item: string): string {
     const mask = ['\}', '\{', '\~', '\=', '\]'];
-    // проход по всем символам маски и их экранизация в строке `item`
+    // проход по всем символам маски и их экранирование в строке `item`
     mask.forEach(symbol => {
       const regExp = new RegExp(symbol, 'gi');
       item = item.replace(regExp, `\\${symbol}`);

@@ -1,6 +1,9 @@
 import {Injectable} from '@angular/core';
 import {TestItem} from './interfaces';
+import {ConfigService} from './config.service';
+
 import * as _ from 'underscore';
+
 
 @Injectable()
 export class DataService {
@@ -9,7 +12,8 @@ export class DataService {
   // public plainText: any; // содержимое теста в текстовом форматн для сохранения
   public fileName: string;  // имя конвертируемого файла (=имени резудьтатного)
 
-  constructor() {
+  // constructor() {
+  constructor(private appConfig: ConfigService) {
   }
 
   /**
@@ -91,7 +95,8 @@ export class DataService {
         // выборка вопроса
         item.question = plainArray[i];
         // выборка ответов
-        for (let j = 1; j <= appConfig.answersNumber; j++) {
+        // for (let j = 1; j <= 4; j++) {
+        for (let j = 1; j <= this.appConfig.answersNumber; j++) {
           item.answers.push(plainArray[i + j]);
         }
         // накопление в массиве
@@ -102,11 +107,6 @@ export class DataService {
   }
 
 }
-
-export const appConfig = {
-  answersNumber: 4
-};
-
 
 
 

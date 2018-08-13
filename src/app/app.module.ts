@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import {DataService} from './shared/data-service';
+import {ConfigService} from './shared/config.service';
 
 import { AppComponent } from './app.component';
 import { TextTableComponent } from './components/text-table/text-table.component';
@@ -22,9 +23,8 @@ import { SaveTestComponent } from './components/header/save-test/save-test.compo
   ],
   imports: [
     BrowserModule,
-    // mammoth
   ],
-  providers: [DataService],
+  providers: [DataService, ConfigService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
