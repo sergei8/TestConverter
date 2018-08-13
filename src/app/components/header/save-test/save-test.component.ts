@@ -54,7 +54,7 @@ export class SaveTestComponent {
         item = item.replace(regExp, `\\${symbol}`);
       } catch (e) {
         console.log(item);
-        alert(`Что-то пошло не так:\n${e}`);
+        alert(`Что-то пошло не так:\n${e.message}`);
       }
     });
     return item;

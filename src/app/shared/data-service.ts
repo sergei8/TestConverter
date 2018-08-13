@@ -4,12 +4,10 @@ import {ConfigService} from './config.service';
 
 import * as _ from 'underscore';
 
-
 @Injectable()
 export class DataService {
 
   public testsList: Array<TestItem>; // структура для вывода в браузер
-  // public plainText: any; // содержимое теста в текстовом форматн для сохранения
   public fileName: string;  // имя конвертируемого файла (=имени резудьтатного)
 
   // constructor() {
