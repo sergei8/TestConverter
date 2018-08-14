@@ -10,6 +10,7 @@ export class ConfigService {
 
   constructor() {
     this.answersNumber = 4;
+    this.semanticCheck = false;
   }
 }
 
