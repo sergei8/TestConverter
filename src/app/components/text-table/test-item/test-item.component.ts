@@ -9,9 +9,13 @@ import {TestItem} from '../../../shared/interfaces';
 export class TestItemComponent {
   @Input() testItem: TestItem;
   @Input() number: number;
-
+  
   constructor() {
   }
 
+  public aaa(event, i) {
+    console.log(event.target.value, i);
+    this.testItem.answers[i] = event.target.value;
+  }
 
 }

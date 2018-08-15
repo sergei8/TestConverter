@@ -6,8 +6,9 @@ import {DataService} from '../../shared/data-service';
   templateUrl: './text-table.component.html',
   styleUrls: ['./text-table.component.css']
 })
-export class TextTableComponent implements  DoCheck {
+export class TextTableComponent implements DoCheck {
   public plainTestsList;
+
 
   constructor(private dataservice: DataService) {
   }
@@ -15,4 +16,5 @@ export class TextTableComponent implements  DoCheck {
   ngDoCheck() {
     this.plainTestsList = this.dataservice.testsList;
   }
+
 }

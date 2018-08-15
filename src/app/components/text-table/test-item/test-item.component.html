@@ -1,11 +1,10 @@
 <div class="test-item">
-  {{number}}
-<!--
-  <p>{{number}}. {{testItem.question}}</p>
+  {{number}}.
+  <textarea [(ngModel)]="testItem.question"></textarea>
   <ol>
-    <li *ngFor="let answer of testItem.answers">
-      {{answer}}
+    <li *ngFor="let _  of testItem.answers; let i = index;">
+      <textarea [ngModel]="testItem.answers[i]" (change)="aaa($event, i);"></textarea>
     </li>
   </ol>
--->
 </div>
+
