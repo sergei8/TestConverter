@@ -9,12 +9,17 @@ import {TestItem} from '../../../shared/interfaces';
 export class TestItemComponent {
   @Input() testItem: TestItem;
   @Input() number: number;
-  
+
   constructor() {
   }
 
-  public aaa(event, i) {
-    console.log(event.target.value, i);
+  /**
+   * меняет значение ответа
+   * @param event - параметры события `change`
+   * @param i - индекс ответа
+   */
+  public changeAnswer(event: any, i: number): void {
+    // console.log(event.target.value, i);
     this.testItem.answers[i] = event.target.value;
   }
 

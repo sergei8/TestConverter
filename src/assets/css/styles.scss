@@ -4,6 +4,13 @@ body, html {
   margin: 0;
 }
 
+textarea {
+  outline: none;
+  resize: none;
+  border-width: 0;
+  margin: 0;
+}
+
 /*
   стили для app-component находятся в самой компоненте
 */

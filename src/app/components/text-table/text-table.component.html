@@ -1,4 +1,6 @@
-<div *ngFor="let item of dataservice.testsList; let i=index">
-  <app-test-item [testItem]="item" [number]="i+1"></app-test-item>
-  <hr>
-</div>
+<ol>
+  <li *ngFor="let item of dataservice.testsList; let i=index">
+    <app-test-item [testItem]="item" [number]="i+1"></app-test-item>
+    <hr>
+  </li>
+</ol>
