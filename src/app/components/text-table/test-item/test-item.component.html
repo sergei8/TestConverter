@@ -1,7 +1,8 @@
   <div class="test-item">
     <!--{{number}}.-->
 
-    <textarea [(ngModel)]="testItem.question" rows="1" cols="90%"></textarea>
+    <textarea [(ngModel)]="testItem.question"
+              contenteditable="true" rows="1" cols="90%"></textarea>
     <ol>
       <li *ngFor="let _  of testItem.answers; let i = index;" class="test-answer">
       <textarea [ngModel]="testItem.answers[i]"
