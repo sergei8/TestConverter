@@ -1,6 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule, NO_ERRORS_SCHEMA} from '@angular/core';
 import {FormsModule} from '@angular/forms';
+import {AutosizeModule} from 'ngx-autosize';
 
 import {DataService} from './shared/data-service';
 import {ConfigService} from './shared/config.service';
@@ -24,7 +25,8 @@ import {SaveTestComponent} from './components/header/save-test/save-test.compone
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    AutosizeModule
   ],
   schemas: [NO_ERRORS_SCHEMA],
   providers: [DataService, ConfigService],

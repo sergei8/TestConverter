@@ -1,4 +1,6 @@
 .test-item{
+  display: grid;
+  grid-template-columns: auto;
   margin: 0 8px;
   background-color: lightpink;
 }
