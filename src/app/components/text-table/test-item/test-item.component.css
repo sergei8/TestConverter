@@ -4,7 +4,7 @@
   margin: 0 8px;
   background-color: lightpink;
 }
-.test-answer{
+.test-answer, .test-question{
   background-color: transparent;
-  vertical-align: middle;
+  vertical-align: top;
 }
