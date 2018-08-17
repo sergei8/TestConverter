@@ -1,15 +1,18 @@
 <div class="test-item">
   <div>
-    <span style="vertical-align: top">{{number}}.</span>
+    <span id="number">{{number}}.&nbsp;</span>
     <textarea autosize class="test-question"  [(ngModel)]="testItem.question"
-              contenteditable="true" rows="1" cols="90%"  wrap="hard" >
+              contenteditable="true" rows="1"
+              cols="80%" >
+              <!--[cols]="adjustTextSize(testItem.question.length)" >-->
     </textarea>
   </div>
   <ol>
     <li *ngFor="let _  of testItem.answers; let i = index;" class="test-answer" >
       <textarea autosize [ngModel]="testItem.answers[i]"
                 (change)="changeAnswer($event, i);"
-                class="test-answer" rows="1" contenteditable="true" cols="90%"></textarea>
+                class="test-answer" rows="1" cols="90%" >
+      </textarea>
     </li>
   </ol>
 

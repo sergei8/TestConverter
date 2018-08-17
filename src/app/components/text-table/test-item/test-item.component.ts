@@ -13,6 +13,7 @@ export class TestItemComponent {
   constructor() {
   }
 
+
   /**
    * меняет значение ответа
    * @param event - параметры события `change`
@@ -21,6 +22,12 @@ export class TestItemComponent {
   public changeAnswer(event: any, i: number): void {
     // console.log(event.target.value, i);
     this.testItem.answers[i] = event.target.value;
+  }
+
+  public adjustTextSize(textLengh: number): string {
+    console.log(textLengh);
+    console.log(window.innerWidth);
+    return '500px';
   }
 
 }

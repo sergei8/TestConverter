@@ -3,8 +3,7 @@ import {DataService} from '../../../../shared/data-service';
 
 @Component({
   selector: 'app-input-reader',
-  templateUrl: './input-file-reader.component.html',
-  styleUrls: ['./input-file-reader.component.css']
+  templateUrl: './input-file-reader.component.html'
 })
 
 export class InputFileReaderComponent {

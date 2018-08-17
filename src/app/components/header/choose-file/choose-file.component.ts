@@ -4,8 +4,7 @@ import {InputFileReaderComponent} from './input-file-reader/input-file-reader.co
 
 @Component({
   selector: 'app-choose-file',
-  templateUrl: './choose-file.component.html',
-  styleUrls: ['./choose-file.component.css']
+  templateUrl: './choose-file.component.html'
 })
 export class ChooseFileComponent implements OnInit {
 

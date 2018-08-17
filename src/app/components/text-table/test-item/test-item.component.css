@@ -2,9 +2,14 @@
   display: grid;
   grid-template-columns: auto;
   margin: 0 8px;
-  background-color: lightpink;
+  background-color: white;
 }
 .test-answer, .test-question{
   background-color: transparent;
   vertical-align: top;
+  /*font-family: Times, Geneva, sans-serif;*/
+}
+#number{
+  /*vertical-align: text-bottom;*/
+
 }
