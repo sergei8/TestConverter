@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-// import {DataService} from '../../shared/data-service';
+import {DataService} from '../../shared/data-service';
 
 @Component({
   selector: 'app-text-table',
@@ -7,8 +7,9 @@ import {Component} from '@angular/core';
   styleUrls: ['./text-table.component.css']
 })
 export class TextTableComponent {
+  // public plainTestsList;
 
-  constructor() {
+  constructor(private dataservice: DataService) {
   }
 
 

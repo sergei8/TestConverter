@@ -10,6 +10,7 @@ export class DataService {
   public testsList: Array<TestItem>; // структура для вывода в браузер
   public fileName: string;  // имя конвертируемого файла (=имени резудьтатного)
 
+  // constructor() {
   constructor(private appConfig: ConfigService) {
   }
 
