@@ -3,6 +3,7 @@ import {NgModule, NO_ERRORS_SCHEMA} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {AutosizeModule} from 'ngx-autosize';
 import {AngularFontAwesomeModule} from 'angular-font-awesome';
+import {CookieService} from 'ngx-cookie-service';
 
 import {DataService} from './shared/data-service';
 import {ConfigService} from './shared/config.service';
@@ -31,7 +32,7 @@ import {SaveTestComponent} from './components/header/save-test/save-test.compone
     AngularFontAwesomeModule
   ],
   schemas: [NO_ERRORS_SCHEMA],
-  providers: [DataService, ConfigService],
+  providers: [DataService, ConfigService, CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
