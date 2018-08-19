@@ -4,8 +4,7 @@ import {saveAs} from 'file-saver/FileSaver';
 
 @Component({
   selector: 'app-save-test',
-  templateUrl: './save-test.component.html',
-  styleUrls: ['./save-test.component.css']
+  templateUrl: './save-test.component.html'
 })
 export class SaveTestComponent {
 
@@ -15,9 +14,8 @@ export class SaveTestComponent {
   /**
    * Сохраняет отконвертированный в GIFT файл на локальный диск
    */
-  saveFile() {
-    const test: Object = this.convertToMoodle();
-    // console.log(test);
+  saveFile(): void {
+    const test = this.convertToMoodle();
     const file = new Blob([test], {type: 'text\plain'});
     const testFileName = this.dataservice.fileName.split('.')[0] + '.txt';
     saveAs(file, testFileName);
@@ -40,8 +38,8 @@ export class SaveTestComponent {
     return test;
   }
 
-  /** Экранирует слешом (\) специальные символы формата GIFT
-   *
+  /**
+   *Экранирует слешом (\) специальные символы формата GIFT
    * @param {string} item - анализируемая строка
    * @return {string} - выходная строка с экранированными спецсимволами
    */
