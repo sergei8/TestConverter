@@ -7,3 +7,8 @@ export interface TestItem {
   status?: boolean;                /*устанавливается в процедуре интеллектуальной проверки*/
   statusMessage?: string;          /* сообщение проверки*/
 }
+
+export interface Config {
+  answersNumber?: number;
+  semanticCheck?: boolean;
+}

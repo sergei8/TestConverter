@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {TestItem} from './interfaces';
+import {TestItem, Config} from './interfaces';
 import {ConfigService} from './config.service';
 
 import * as _ from 'underscore';
@@ -94,7 +94,7 @@ export class DataService {
         item.question = plainArray[i];
         // выборка ответов
         // for (let j = 1; j <= 4; j++) {
-        for (let j = 1; j <= this.appConfig.answersNumber; j++) {
+        for (let j = 1; j <= this.appConfig.config.answersNumber; j++) {
           item.answers.push(plainArray[i + j]);
         }
         // накопление в массиве
