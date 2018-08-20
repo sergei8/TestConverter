@@ -6,13 +6,15 @@
     <div id="sendToConverterButton">
       <app-save-test></app-save-test>
     </div>
-      <div id="cog" >
-        <i class="fa fa-cog fa-2x"></i>
-      </div>
+
+    <div id="cog" (click)="showConfig()">
+      <i class="fa fa-cog fa-2x"></i>
+    </div>
 
     <div id="help">
       <i class="fa fa-question fa-2x"></i>
     </div>
+
   </div>
 
   <main id="main-grid">
@@ -27,3 +29,4 @@
   </main>
 
 </div>
+

@@ -1,5 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewContainerRef} from '@angular/core';
 import {ConfigService, DEFAULT_ANSWERS, DEFAULT_SEM_CHECK} from './shared/config.service';
+import {ModalDialogService, SimpleModalComponent} from 'ngx-modal-dialog';
+import {SetConfigComponent} from './components/header/set-config/set-config.component';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +10,11 @@ import {ConfigService, DEFAULT_ANSWERS, DEFAULT_SEM_CHECK} from './shared/config
 })
 export class AppComponent implements OnInit {
 
-  constructor(private configService: ConfigService) {
+  public showConfigModal = false;
+
+  constructor(private configService: ConfigService,
+              private modalService: ModalDialogService,
+              private viewRef: ViewContainerRef) {
 
   }
 
@@ -25,4 +31,25 @@ export class AppComponent implements OnInit {
       this.configService.saveConfig();
     }
   }
+
+  showConfig() {
+    /*
+        this.showConfigModal = !this.showConfigModal;
+        console.log(this.showConfigModal);
+    */
+    this.modalService.openDialog(this.viewRef, {
+      title: 'Some modal title',
+      childComponent: SetConfigComponent
+/*
+      settings: {
+        closeButtonClass: 'fa fa-close'
+      },
+      data: {
+        text: 'Some text content'
+      }
+*/
+    });
+
+  }
+
 }
