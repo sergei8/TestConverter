@@ -1,0 +1,17 @@
+#config-params{
+  display: grid;
+  grid-template-columns: 20px auto 20px auto 20px;
+  grid-row-gap: 1.1em;
+}
+
+label{
+  grid-column: 2;
+}
+
+input{
+  grid-column: 4;
+}
+
+input[type="number"]{
+  width: 50px;
+}
