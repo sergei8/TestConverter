@@ -17,6 +17,8 @@ export class DataService {
   /**
    * Читает docx-файл, преобразует его в текстовый формат, затем в
    * структуру для вывода в окно браузера
+   * Через эту функцию начинается процедура загрузки и обработки файла
+   * Вызывает функции: `getFile`, `mammoth.extractRawText`, `convertToArray`, `convertToTest`
    * @return {Array<TestItem>}
    */
   async getPlainTests(fileName: File) {
@@ -24,13 +26,21 @@ export class DataService {
     try {
       this.fileName = fileName.name;
       const plainBuffer = await this.getFile(fileName);
-      // преобразуем docx-файл в текстовый для дальнейщей его записи на диск
+
+      // преобразует docx-файл в текстовый для дальнейщей его записи на диск
       const plainText = await mammoth.extractRawText({arrayBuffer: plainBuffer})
         .then(result => {
           return result.value;
         });
+
       const plainArray = await this.convertToArray(plainText);
       this.testsList = await this.convertToTest(plainArray);
+
+      // если включен флаг `semanticCheck` в конфигк,то делаем семантическую проверку
+      if (this.appConfig.config.semanticCheck) {
+        let statusCode: number = await this.checkForErrors();
+      }
+
 
     } catch (e) {
       console.log(e.message);
@@ -43,7 +53,6 @@ export class DataService {
    * @return {Promise<any>} - промис c resolve=контенту файла
    */
   getFile(fileName: File): Promise<File> {
-    // const file: File = fileName;
     const fileReader: FileReader = new FileReader();
 
     return new Promise(resolve => {
@@ -51,7 +60,6 @@ export class DataService {
         resolve(fileReader.result);
       };
       fileReader.readAsArrayBuffer(fileName);
-      // fileReader.readAsText(file);
     });
   }
 
@@ -93,7 +101,6 @@ export class DataService {
         // выборка вопроса
         item.question = plainArray[i];
         // выборка ответов
-        // for (let j = 1; j <= 4; j++) {
         for (let j = 1; j <= this.appConfig.config.answersNumber; j++) {
           item.answers.push(plainArray[i + j]);
         }
@@ -101,6 +108,12 @@ export class DataService {
         test.push(item);
       }
       resolve(test);
+    });
+  }
+
+  checkForErrors(): Promise<number> {
+    return new Promise(() => {
+      console.log((this.testsList));
     });
   }
 

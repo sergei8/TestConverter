@@ -13,17 +13,16 @@ export class TestItemComponent {
   constructor() {
   }
 
-
   /**
-   * меняет значение ответа
+   * меняет значение ответа, когда с экрана сделана корректировка
    * @param event - параметры события `change`
-   * @param i - индекс ответа
+   * @param i - порядковый номер ответа
    */
   public changeAnswer(event: any, i: number): void {
     this.testItem.answers[i] = event.target.value;
   }
 
-  //todo сделать автофит под размер окна
+  //todo сделать автофит под размер окна - пока не используется
   public adjustTextSize(textLengh: number): string {
     console.log(textLengh);
     console.log(window.innerWidth);
