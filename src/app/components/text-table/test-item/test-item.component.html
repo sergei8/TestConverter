@@ -2,8 +2,7 @@
   <div>
     <span id="number">{{number}}.&nbsp;</span>
     <textarea autosize class="test-question"  [(ngModel)]="testItem.question"
-              contenteditable="true" rows="1"
-              cols="80%" >
+              rows="1" cols="80%" >
               <!--[cols]="adjustTextSize(testItem.question.length)" >-->
     </textarea>
   </div>
@@ -11,7 +10,7 @@
     <li *ngFor="let _  of testItem.answers; let i = index;" class="test-answer" >
       <textarea autosize [ngModel]="testItem.answers[i]"
                 (change)="changeAnswer($event, i);"
-                class="test-answer" rows="1" >
+                class="test-answer" rows="1" cols="80%" >
       </textarea>
     </li>
   </ol>

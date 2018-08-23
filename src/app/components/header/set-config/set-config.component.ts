@@ -1,8 +1,6 @@
 import {Component, ComponentRef} from '@angular/core';
 import {IModalDialog, IModalDialogOptions, IModalDialogButton} from 'ngx-modal-dialog';
-import {Config} from '../../../shared/interfaces';
-import {DataService} from '../../../shared/data-service';
-import {ConfigService, DEFAULT_ANSWERS, DEFAULT_SEM_CHECK} from '../../../shared/config.service';
+import {ConfigService} from '../../../shared/config.service';
 
 @Component({
   selector: 'app-set-config',
@@ -12,17 +10,23 @@ import {ConfigService, DEFAULT_ANSWERS, DEFAULT_SEM_CHECK} from '../../../shared
 export class SetConfigComponent implements IModalDialog {
   actionButtons: IModalDialogButton[];
 
+  /**
+   * определяет функционал кнопок диалогового окна настройки конфига
+   * @param {ConfigService} configService
+   */
   constructor(private configService: ConfigService) {
 
     this.actionButtons = [
-      {text: 'Сохранить'},
-      {text: 'Прервать'}
-      // {text: 'I will always close', onAction: () => true, buttonClass: 'btn btn-success'}
-      // {text: 'I never close', onAction: () => false}
+      {
+        text: 'Сохранить', onAction: () => {
+          this.configService.saveConfig();
+          return true;
+        }
+      },
+      {
+        text: 'Прервать'
+      }
     ];
-
-    // this.settings.headerClass = 'display: none';
-    console.log(this.actionButtons);
   }
 
   dialogInit(reference: ComponentRef<IModalDialog>, options: Partial<IModalDialogOptions<any>>) {

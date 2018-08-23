@@ -20,10 +20,10 @@ export class TestItemComponent {
    * @param i - индекс ответа
    */
   public changeAnswer(event: any, i: number): void {
-    // console.log(event.target.value, i);
     this.testItem.answers[i] = event.target.value;
   }
 
+  //todo сделать автофит под размер окна
   public adjustTextSize(textLengh: number): string {
     console.log(textLengh);
     console.log(window.innerWidth);

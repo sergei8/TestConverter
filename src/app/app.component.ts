@@ -30,6 +30,9 @@ export class AppComponent implements OnInit {
     }
   }
 
+  /**
+   * макет диалогового окна настройки конфигурации
+   */
   showConfig() {
     this.modalService.openDialog(this.viewRef, {
       title: 'Параметры конвертера',
@@ -38,13 +41,7 @@ export class AppComponent implements OnInit {
         headerTitleClass: 'h5 label',
         buttonClass: 'btn btn-sm btn-outline-info'
       },
-      /*
-          data: {
-             text: 'Some text content'
-           }
-     */
     });
-
   }
 
 }

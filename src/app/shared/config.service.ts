@@ -10,21 +10,26 @@ export class ConfigService {
   constructor(private cookieService: CookieService) {
   }
 
-  readConfig() {
+  /**
+   * читает параметры конфигурации
+   * @return {Object} - конфигурация приложения
+   */
+  readConfig(): Object {
     this.config.answersNumber = Number(this.cookieService.get('answersNumber'));
     this.config.semanticCheck = (this.cookieService.get('semanticCheck') === 'true');
+    // console.log('read config', this.config);
+    return this.config;
   }
 
+  /**
+   * сохраняет конфигурацию в куку
+   */
   saveConfig(): void {
-    this.cookieService.set('answersNumber', this.config.answersNumber.toString());
-    this.cookieService .set('semanticCheck', this.config.semanticCheck.toString());
-    console.log('config saved');
-  }
-
-  setConfig(answersNumber: string, semanticCheck: string): void {
-    // this.answersNumber = parseInt(answersNumber);
-    // this.semanticCheck = (semanticCheck === 'true');
-    // this.saveConfig();
+    const date = new Date();
+    date.setDate(date.getDate() + 1000);   // дату надолго
+    this.cookieService.set('answersNumber', this.config.answersNumber.toString(), date);
+    this.cookieService.set('semanticCheck', this.config.semanticCheck.toString(), date);
+    // console.log('config saved', date);
   }
 
 }
