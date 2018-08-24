@@ -9,7 +9,7 @@
   vertical-align: top;
   /*font-family: Times, Geneva, sans-serif;*/
 }
-#number{
-  /*vertical-align: text-bottom;*/
 
+li, #number{
+  color: lightgray;
 }

@@ -33,5 +33,5 @@ export class ConfigService {
 }
 
 export const DEFAULT_ANSWERS = 4;
-export const DEFAULT_SEM_CHECK = true;
+export const DEFAULT_SEM_CHECK = false;
 

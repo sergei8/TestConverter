@@ -7,7 +7,7 @@
     </textarea>
   </div>
   <ol>
-    <li *ngFor="let _  of testItem.answers; let i = index;" class="test-answer" >
+    <li *ngFor="let _  of testItem.answers; let i = index;"  >
       <textarea autosize [ngModel]="testItem.answers[i]"
                 (change)="changeAnswer($event, i);"
                 class="test-answer" rows="1" cols="80%" >

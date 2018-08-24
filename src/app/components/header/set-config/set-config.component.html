@@ -1,9 +1,6 @@
 <div id="config-params">
   <label for="answersNumber">Число ответов</label>
   <input  id="answersNumber"   type="number" [(ngModel)]="configService.config.answersNumber" min="2" max="10">
-  <!--<input  id="answersNumber"   type="number" [value]="configService.config.answersNumber" min="2" max="10">-->
   <label for="semAnalise">Семантический анализ</label>
-  <input type="checkbox" id="semAnalise" disabled>
-
-
+  <input type="checkbox" id="semAnalise" [(ngModel)]="configService.config.semanticCheck" >
 </div>

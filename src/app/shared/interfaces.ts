@@ -5,6 +5,7 @@ export interface TestItem {
   correctAnswerNumber?: number;   /* номер правильного ответа */
   // todo разработать такую процедуру
   status?: boolean;                /*устанавливается в процедуре интеллектуальной проверки*/
+  statusLevel?:number;             /* статус ошибки: критичная, некоритичная и т.д. */
   statusMessage?: string;          /* сообщение проверки*/
 }
 

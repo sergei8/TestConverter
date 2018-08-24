@@ -111,10 +111,37 @@ export class DataService {
     });
   }
 
+  /**
+   * проводит семантический анализ тестов на разного рода
+   * пользовательские ошибки: нумерация ответов/вопросов, не
+   * одинаковое число ответов и т.п.
+   * Вызывает последовательно функции конкретного вида анализа  и
+   * устанавливает для каждого айтема его статус, и статусное сообщение
+   * @return {Promise<number>}
+   */
   checkForErrors(): Promise<number> {
     return new Promise(() => {
-      console.log((this.testsList));
+      // console.log((this.testsList));
+      this.testsList.forEach((item) => {
+        checkForNumerating(item);
+        console.log(item);
+      });
     });
+
+    /** проверка на наличие нумерации в тесте */
+    function checkForNumerating(item): void {
+      const mask = /[1-9а-яА-Яa-zA-Z][.)]/;
+      item.status = RegExp(mask, 'gi').test(item.question);
+      item.answers.forEach((ans) => {
+        item.status = RegExp(mask, 'gi').test(ans);
+      });
+      if (item.status) {
+        item.statusLevel = 1;
+        item.statusMessage = 'В вопросе или ответах присутуствует не нужная нумерация.\n' +
+          'Вы можете убрать ее здесь или в исходном файле.'
+      }
+    }
+
   }
 
 }
