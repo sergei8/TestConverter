@@ -1,15 +1,19 @@
-.test-item{
-  display: grid;
-  grid-template-columns: auto;
+.test-item, .test-item-err {
   margin: 0 8px;
+}
+.test-item {
   background-color: white;
 }
-.test-answer, .test-question{
+.test-item-err {
+  background-color: pink;
+}
+
+.test-answer, .test-question {
   background-color: transparent;
   vertical-align: top;
   /*font-family: Times, Geneva, sans-serif;*/
 }
 
-li, #number{
-  color: lightgray;
+li, #number {
+  color: darkgray;
 }

@@ -3,8 +3,7 @@ export interface TestItem {
   answers: Array<string>;         /* список ответов */
   answesrQty?: number;            /* количество ответов */
   correctAnswerNumber?: number;   /* номер правильного ответа */
-  // todo разработать такую процедуру
-  status?: boolean;                /*устанавливается в процедуре интеллектуальной проверки*/
+  statusBad?: boolean;                /*устанавливается в процедуре интеллектуальной проверки*/
   statusLevel?:number;             /* статус ошибки: критичная, некоритичная и т.д. */
   statusMessage?: string;          /* сообщение проверки*/
 }

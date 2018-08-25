@@ -1,16 +1,19 @@
-<div class="test-item">
+<!--todo сделать вывод statusMessage при наведении курсора на  item-->
+
+<div [ngClass]="setItemClass(testItem.statusBad)">
   <div>
-    <span id="number">{{number}}.&nbsp;</span>
-    <textarea autosize class="test-question"  [(ngModel)]="testItem.question"
-              rows="1" cols="90%" >
+    <span id="number">{{number}}.&nbsp;
+    <textarea autosize class="test-question" [(ngModel)]="testItem.question"
+              rows="1" cols="90%">
               <!--[cols]="adjustTextSize(testItem.question.length)" >-->
     </textarea>
+    </span>
   </div>
   <ol>
-    <li *ngFor="let _  of testItem.answers; let i = index;"  >
+    <li *ngFor="let _  of testItem.answers; let i = index;">
       <textarea autosize [ngModel]="testItem.answers[i]"
                 (change)="changeAnswer($event, i);"
-                class="test-answer" rows="1" cols="80%" >
+                class="test-answer" rows="1" cols="80%">
       </textarea>
     </li>
   </ol>

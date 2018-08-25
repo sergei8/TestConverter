@@ -9,7 +9,7 @@
 #header-grid {
   background-color: #3D80CC;
   display: grid;
-  grid-template-columns: 20px 140px 0px 0px 120px auto 40px 40px 20px;
+  grid-template-columns: 20px 140px 0 0 120px auto 40px 40px 20px;
   margin-top: 5px;
 }
 

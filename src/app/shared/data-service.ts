@@ -10,7 +10,6 @@ export class DataService {
   public testsList: Array<TestItem>; // структура для вывода в браузер
   public fileName: string;  // имя конвертируемого файла (=имени резудьтатного)
 
-  // constructor() {
   constructor(private appConfig: ConfigService) {
   }
 
@@ -124,21 +123,31 @@ export class DataService {
       // console.log((this.testsList));
       this.testsList.forEach((item) => {
         checkForNumerating(item);
-        console.log(item);
+        checkForAnswers(item);
       });
     });
 
     /** проверка на наличие нумерации в тесте */
-    function checkForNumerating(item): void {
+    function checkForNumerating(item): boolean {
       const mask = /[1-9а-яА-Яa-zA-Z][.)]/;
-      item.status = RegExp(mask, 'gi').test(item.question);
-      item.answers.forEach((ans) => {
-        item.status = RegExp(mask, 'gi').test(ans);
+      item.statusBad = false;
+      item.statusBad = item.statusBad || RegExp(mask, 'gi').test(item.question.slice(0, 5));
+      item.answers.forEach((ans: string) => {
+        item.statusBad = item.statusBad || RegExp(mask, 'gi').test(ans.slice(0, 2));
       });
-      if (item.status) {
-        item.statusLevel = 1;
-        item.statusMessage = 'В вопросе или ответах присутуствует не нужная нумерация.\n' +
-          'Вы можете убрать ее здесь или в исходном файле.'
+      if (item.statusBad) {
+        item.statusMessage = 'В вопросе или ответах присутуствует ненужная нумерация.\n' +
+          'Вы можете убрать ее здесь или в исходном файле.';
+      }
+    }
+
+    /** проверяет список ответов и, если ответ похож на вопрос - отмечает его */
+    function checkForAnswers(item): void {
+      item.answers.forEach((ans: string) => {
+        item.statusBad = item.statusBad || ans.slice(-1) === '?';
+      });
+      if (item.statusBad) {
+        item.statusMessage = 'Похоже, в список ответов попал тестовый вопрос';
       }
     }
 

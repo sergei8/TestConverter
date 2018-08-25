@@ -1,10 +1,12 @@
+//todo перерисоывать/перегружать файл, если изменен конфиг
+
 import {Component, Input} from '@angular/core';
 import {TestItem} from '../../../shared/interfaces';
 
 @Component({
   selector: 'app-test-item',
-  templateUrl: './test-item.component.html',
-  styleUrls: ['./test-item.component.css']
+  templateUrl: './test-item.component.html?v=1.0',
+  styleUrls: ['./test-item.component.css?v=1.0']
 })
 export class TestItemComponent {
   @Input() testItem: TestItem;
@@ -20,6 +22,14 @@ export class TestItemComponent {
    */
   public changeAnswer(event: any, i: number): void {
     this.testItem.answers[i] = event.target.value;
+  }
+
+  public setItemClass(statusBad: boolean): string {
+    let itemClass = 'test-item';
+    if (statusBad) {
+      itemClass = 'test-item-err';
+    }
+    return itemClass;
   }
 
   //todo сделать автофит под размер окна - пока не используется
