@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {TestItem, Config} from './interfaces';
+import {TestItem} from './interfaces';
 import {ConfigService} from './config.service';
 
 import * as _ from 'underscore';
@@ -11,6 +11,7 @@ export class DataService {
   public fileName: string;  // имя конвертируемого файла (=имени резудьтатного)
 
   constructor(private appConfig: ConfigService) {
+    this.fileName = undefined;
   }
 
   /**
@@ -20,11 +21,11 @@ export class DataService {
    * Вызывает функции: `getFile`, `mammoth.extractRawText`, `convertToArray`, `convertToTest`
    * @return {Array<TestItem>}
    */
-  async getPlainTests(fileName: File) {
+  async getPlainTests(file: File) {
 
     try {
-      this.fileName = fileName.name;
-      const plainBuffer = await this.getFile(fileName);
+      this.fileName = file.name;
+      const plainBuffer = await this.getFile(file);
 
       // преобразует docx-файл в текстовый для дальнейщей его записи на диск
       const plainText = await mammoth.extractRawText({arrayBuffer: plainBuffer})
@@ -37,7 +38,7 @@ export class DataService {
 
       // если включен флаг `semanticCheck` в конфигк,то делаем семантическую проверку
       if (this.appConfig.config.semanticCheck) {
-        let statusCode: number = await this.checkForErrors();
+        await this.checkForErrors();
       }
 
 
@@ -91,7 +92,8 @@ export class DataService {
       const test = [];
 
       // проход по линейному массиву
-      for (let i = 0; i < plainArray.length; i = i + 5) {
+      // for (let i = 0; i < plainArray.length; i = i + 5) {
+      for (let i = 0; i < plainArray.length; i += this.appConfig.config.answersNumber + 1) {
         // инициализируем структуру
         const item: TestItem = {
           question: '',
@@ -118,7 +120,7 @@ export class DataService {
    * устанавливает для каждого айтема его статус, и статусное сообщение
    * @return {Promise<number>}
    */
-  checkForErrors(): Promise<number> {
+  checkForErrors(): Promise<void> {
     return new Promise(() => {
       // console.log((this.testsList));
       this.testsList.forEach((item) => {
@@ -128,7 +130,7 @@ export class DataService {
     });
 
     /** проверка на наличие нумерации в тесте */
-    function checkForNumerating(item): boolean {
+    function checkForNumerating(item): void {
       const mask = /[1-9а-яА-Яa-zA-Z][.)]/;
       item.statusBad = false;
       item.statusBad = item.statusBad || RegExp(mask, 'gi').test(item.question.slice(0, 5));

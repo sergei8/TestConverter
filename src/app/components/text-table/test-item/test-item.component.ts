@@ -34,8 +34,8 @@ export class TestItemComponent {
 
   //todo сделать автофит под размер окна - пока не используется
   public adjustTextSize(textLengh: number): string {
-    console.log(textLengh);
-    console.log(window.innerWidth);
+    // console.log(textLengh);
+    // console.log(window.innerWidth);
     return '500px';
   }
 

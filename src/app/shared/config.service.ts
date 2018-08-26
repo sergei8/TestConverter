@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {CookieService} from 'ngx-cookie-service';
 import {Config} from './interfaces';
+// import {DataService} from './data-service';
 
 @Injectable()
 export class ConfigService {
@@ -28,6 +29,7 @@ export class ConfigService {
     date.setDate(date.getDate() + 1000);   // дату надолго
     this.cookieService.set('answersNumber', this.config.answersNumber.toString(), date);
     this.cookieService.set('semanticCheck', this.config.semanticCheck.toString(), date);
+          // this.dataService.getPlainTests(this.dataService.fileName);
   }
 
 }
