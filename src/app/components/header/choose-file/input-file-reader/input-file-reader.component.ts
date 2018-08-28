@@ -1,5 +1,7 @@
 import {Component} from '@angular/core';
 import {DataService} from '../../../../shared/data-service';
+import {ConfigService} from '../../../../shared/config.service';
+import {async} from 'q';
 
 @Component({
   selector: 'app-input-reader',
@@ -8,7 +10,8 @@ import {DataService} from '../../../../shared/data-service';
 
 export class InputFileReaderComponent {
 
-  constructor(public dataservice: DataService) {
+  constructor(private dataservice: DataService,
+              private configService: ConfigService) {
   }
 
   /**
@@ -17,7 +20,9 @@ export class InputFileReaderComponent {
    * @param $event - содержит ссылку на файловый объект
    */
   fileSelected($event: any): void {
-    this.dataservice.getPlainTests($event.target.files[0]);
+    async(this.dataservice.getPlainTests($event.target.files[0]));
+    this.configService.isTestLoaded = true;   //  тест загружен
+    // console.log('******', this.configService.isTestLoaded);
   }
 
 }

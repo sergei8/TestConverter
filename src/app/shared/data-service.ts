@@ -9,9 +9,9 @@ export class DataService {
 
   public testsList: Array<TestItem>; // структура для вывода в браузер
   public fileName: string;  // имя конвертируемого файла (=имени резудьтатного)
+  public file: File;        // сохранеям файл, если изменится конфиг и  нужна перезагрузка
 
   constructor(private appConfig: ConfigService) {
-    this.fileName = undefined;
   }
 
   /**
@@ -22,6 +22,7 @@ export class DataService {
    * @return {Array<TestItem>}
    */
   async getPlainTests(file: File) {
+    this.file = file;
 
     try {
       this.fileName = file.name;
@@ -41,10 +42,10 @@ export class DataService {
         await this.checkForErrors();
       }
 
-
     } catch (e) {
-      console.log(e.message);
+      console.log('error somewhere in getPlainText', e.message);
     }
+
   }
 
   /**
@@ -92,7 +93,6 @@ export class DataService {
       const test = [];
 
       // проход по линейному массиву
-      // for (let i = 0; i < plainArray.length; i = i + 5) {
       for (let i = 0; i < plainArray.length; i += this.appConfig.config.answersNumber + 1) {
         // инициализируем структуру
         const item: TestItem = {

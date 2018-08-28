@@ -17,7 +17,6 @@ export class SaveTestComponent {
    */
   saveFile() {
     const test: Object = this.convertToMoodle();
-    // console.log(test);
     const file = new Blob([test], {type: 'text\plain'});
     const testFileName = this.dataservice.fileName.split('.')[0] + '.txt';
     saveAs(file, testFileName);
