@@ -15,6 +15,7 @@ export class SetConfigComponent implements IModalDialog {
   /**
    * определяет функционал кнопок диалогового окна настройки конфига
    * @param {ConfigService} configService
+   * @param {DataService} dataService
    */
   constructor(private configService: ConfigService,
               private dataService: DataService) {
