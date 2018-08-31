@@ -2,6 +2,7 @@ import {Component, OnInit, ViewContainerRef} from '@angular/core';
 import {ConfigService, DEFAULT_ANSWERS, DEFAULT_SEM_CHECK} from './shared/config.service';
 import {ModalDialogService} from 'ngx-modal-dialog';
 import {SetConfigComponent} from './components/header/set-config/set-config.component';
+import {DataService} from './shared/data-service';
 
 @Component({
   selector: 'app-root',
@@ -12,8 +13,8 @@ export class AppComponent implements OnInit {
 
   constructor(private configService: ConfigService,
               private modalService: ModalDialogService,
-              private viewRef: ViewContainerRef) {
-
+              private viewRef: ViewContainerRef,
+              public dataservice: DataService) {
   }
 
   /**

@@ -10,6 +10,7 @@ export class DataService {
   public testsList: Array<TestItem>; // структура для вывода в браузер
   public fileName: string;  // имя конвертируемого файла (=имени резудьтатного)
   public file: File;        // сохранеям файл, если изменится конфиг и  нужна перезагрузка
+  public loadProgressIndicator = false;   // управляет показом прогресс-индикатора
 
   constructor(private appConfig: ConfigService) {
   }
@@ -25,14 +26,20 @@ export class DataService {
     this.file = file;
 
     try {
+      this.loadProgressIndicator = true;
+      // console.log('@@@', this.loadProgressIndicator);
+
       this.fileName = file.name;
       const plainBuffer = await this.getFile(file);
+
 
       // преобразует docx-файл в текстовый для дальнейщей его записи на диск
       const plainText = await mammoth.extractRawText({arrayBuffer: plainBuffer})
         .then(result => {
           return result.value;
         });
+      this.loadProgressIndicator = false;
+      // console.log('+++++', this.loadProgressIndicator);
 
       const plainArray = await this.convertToArray(plainText);
       this.testsList = await this.convertToTest(plainArray);
@@ -42,8 +49,11 @@ export class DataService {
         await this.checkForErrors();
       }
 
+
     } catch (e) {
       console.log('error somewhere in getPlainText', e.message);
+      this.loadProgressIndicator = false;
+
     }
 
   }

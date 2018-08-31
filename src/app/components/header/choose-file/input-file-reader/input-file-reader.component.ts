@@ -20,9 +20,10 @@ export class InputFileReaderComponent {
    * @param $event - содержит ссылку на файловый объект
    */
   fileSelected($event: any): void {
+    // this.dataservice.loadProgressIndicator = true;
     async(this.dataservice.getPlainTests($event.target.files[0]));
+    // this.dataservice.loadProgressIndicator = false;
     this.configService.isTestLoaded = true;   //  тест загружен
-    // console.log('******', this.configService.isTestLoaded);
   }
 
 }

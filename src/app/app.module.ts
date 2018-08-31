@@ -33,7 +33,7 @@ import {SetConfigComponent} from './components/header/set-config/set-config.comp
     FormsModule,
     AutosizeModule,
     AngularFontAwesomeModule,
-    ModalDialogModule.forRoot()
+    ModalDialogModule.forRoot(),
   ],
   schemas: [NO_ERRORS_SCHEMA],
   providers: [DataService, ConfigService, CookieService],

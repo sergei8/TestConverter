@@ -20,6 +20,9 @@
   <main id="main-grid">
     <div id="text-table">
       <app-text-table></app-text-table>
+      <p  *ngIf="dataservice.loadProgressIndicator">
+        Ждите ...
+      </p>
     </div>
 
     <div id="table-footer">

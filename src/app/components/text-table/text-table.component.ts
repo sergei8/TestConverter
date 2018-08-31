@@ -7,9 +7,9 @@ import {DataService} from '../../shared/data-service';
   styleUrls: ['./text-table.component.css']
 })
 export class TextTableComponent {
-  // public plainTestsList;
 
-  constructor(private dataservice: DataService) {
+
+  constructor(public dataservice: DataService) {
   }
 
 
