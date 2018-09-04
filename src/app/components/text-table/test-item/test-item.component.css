@@ -1,9 +1,11 @@
 .test-item, .test-item-err {
   margin: 0 8px;
 }
+
 .test-item {
   background-color: white;
 }
+
 .test-item-err {
   background-color: pink;
 }
@@ -12,6 +14,12 @@
   background-color: transparent;
   vertical-align: top;
   /*font-family: Times, Geneva, sans-serif;*/
+}
+
+#test-item-grid {
+  display: grid;
+  grid-template-columns: 40px auto 40px;
+
 }
 
 li, #number {
