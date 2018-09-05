@@ -11,6 +11,9 @@ import {TestItem} from '../../../shared/interfaces';
 export class TestItemComponent {
   @Input() testItem: TestItem;
   @Input() number: number;
+  showError: boolean;
+
+  /* для включение/выключение поповера c тестом ошибки */
 
   constructor() {
   }
@@ -39,4 +42,7 @@ export class TestItemComponent {
     return '500px';
   }
 
+  showErrorPopover(message): void {
+    this.showError = !this.showError;
+  }
 }

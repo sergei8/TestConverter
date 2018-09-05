@@ -17,8 +17,8 @@
 }
 
 #test-item-grid {
-  display: grid;
-  grid-template-columns: 40px auto 40px;
+  display: inline-grid;
+  grid-template-columns: 30px auto 50px;
 
 }
 

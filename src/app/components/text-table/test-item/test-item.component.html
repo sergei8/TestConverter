@@ -2,43 +2,27 @@
 <!--https://github.com/ncstate-sat/popover#satpopoveranchor-has-the-following-methods-and-outputs-->
 
 <div [ngClass]="setItemClass(testItem.statusBad)">
-  <!--
-    <div id="test-item-grid">
-      <div id="number">
-        {{number}}.&nbsp;
-      </div>
-      <textarea autosize class="test-question" [(ngModel)]="testItem.question"
-                rows="1" cols="90%">
-                &lt;!&ndash;[cols]="adjustTextSize(testItem.question.length)" >&ndash;&gt;
+  <div id="test-item-grid">
+    <div id="number">
+      {{number}}.&nbsp;
+    </div>
+    <textarea autosize class="test-question" [(ngModel)]="testItem.question"
+              rows="1" cols="90%">
+                <!--[cols]="adjustTextSize(testItem.question.length)" >-->
       </textarea>
-      <div id="help">
-        <i class="fa fa-question fa-2x"></i>
-      </div>
-  -->
-  <table>
-    <tr>
-      <td id="number">
-        {{number}}.&nbsp;
-      </td>
-      <td>
-        <textarea autosize class="test-question" [(ngModel)]="testItem.question"
-                  rows="1" cols="90%">
-        </textarea>
-      </td>
-      <td>
-         <i class="fa fa-question fa-2x"></i>
-      </td>
-    </tr>
-  </table>
+    <div id="getMessage" *ngIf="testItem.statusBad" (click)="showErrorPopover(testItem.statusMessage)">
+      <i class="fa fa-exclamation-circle fa-2x" style="color: red"></i>
+      <app-error-message *ngIf="showError"></app-error-message>
+    </div>
+  </div>
 
-<ol>
-  <li *ngFor="let _  of testItem.answers; let i = index;">
+  <ol>
+    <li *ngFor="let _  of testItem.answers; let i = index;">
       <textarea autosize [ngModel]="testItem.answers[i]"
                 (change)="changeAnswer($event, i);"
                 class="test-answer" rows="1" cols="80%">
       </textarea>
-  </li>
-</ol>
+    </li>
+  </ol>
 
 </div>
-
