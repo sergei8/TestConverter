@@ -1,3 +1,7 @@
+//todo сделать HELP
+//todo исправить PopOver
+//todo совершенствовать синтаксический анализатор
+
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule, NO_ERRORS_SCHEMA} from '@angular/core';
 import {FormsModule} from '@angular/forms';
@@ -16,7 +20,7 @@ import {InputFileReaderComponent} from './components/header/choose-file/input-fi
 import {TestItemComponent} from './components/text-table/test-item/test-item.component';
 import {SaveTestComponent} from './components/header/save-test/save-test.component';
 import {SetConfigComponent} from './components/header/set-config/set-config.component';
-import { ErrorMessageComponent } from './components/text-table/test-item/error-message.component';
+import {ErrorMessageComponent} from './components/text-table/test-item/error-message.component';
 
 
 @NgModule({
