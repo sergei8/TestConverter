@@ -17,7 +17,7 @@ export class SetConfigComponent implements IModalDialog {
    * @param {ConfigService} configService
    * @param {DataService} dataService
    */
-  constructor(private configService: ConfigService,
+  constructor(public configService: ConfigService,
               private dataService: DataService) {
 
     this.actionButtons = [

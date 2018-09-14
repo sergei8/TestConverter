@@ -1,24 +1,20 @@
-
 import {Component, Input} from '@angular/core';
 import {TestItem} from '../../../shared/interfaces';
 
 @Component({
   selector: 'app-test-item',
-  templateUrl: './test-item.component.html?v=1.0',
-  styleUrls: ['./test-item.component.css?v=1.0']
+  templateUrl: './test-item.component.html',
+  styleUrls: ['./test-item.component.css']
 })
 export class TestItemComponent {
   @Input() testItem: TestItem;
   @Input() number: number;
-  showError: boolean;
-
-  /* для включение/выключение поповера c тестом ошибки */
 
   constructor() {
   }
 
   /**
-   * меняет конртент ответа, когда с экрана сделана корректировка
+   * меняет контент ответа, когда с экрана сделана корректировка
    * @param event - параметры события `change`
    * @param i - порядковый номер ответа
    */
@@ -26,6 +22,11 @@ export class TestItemComponent {
     this.testItem.answers[i] = event.target.value;
   }
 
+  /**
+   * изменяет цвет фона для вопросов с statusBad = true
+   * @param {boolean} statusBad
+   * @return {string}
+   */
   public setItemClass(statusBad: boolean): string {
     let itemClass = 'test-item';
     if (statusBad) {
@@ -43,7 +44,4 @@ export class TestItemComponent {
   }
 */
 
-  showErrorPopover(message): void {
-    this.showError = !this.showError;
-  }
 }

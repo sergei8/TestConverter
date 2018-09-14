@@ -11,9 +11,11 @@
                 <!--[cols]="adjustTextSize(testItem.question.length)" >-->
       </textarea>
 
-    <div id="getMessage" *ngIf="testItem.statusBad" (click)="showErrorPopover(testItem.statusMessage)">
+    <div id="getMessage" *ngIf="testItem.statusBad"
+    ngbPopover={{testItem.statusMessage}} placement="left"
+    >
       <i class="fa fa-exclamation-circle fa-2x" style="color: red"></i>
-      <app-error-message *ngIf="showError"></app-error-message>
+      <!--<app-error-message *ngIf="showError"></app-error-message>-->
     </div>
   </div>
 
