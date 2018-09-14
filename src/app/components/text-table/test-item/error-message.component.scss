@@ -1,22 +1,26 @@
-/*
-:host {
-  padding: 48px;
-  display: block;
-  background: rgba(0,0,255,0.05);
-}
-*/
-
-.hover-anchor {
-  display: inline-block;
-  background: rgba(0,0,0,0.1);
-  padding: 8px;
-}
+//:host {
+//  padding: 48px;
+//  display: block;
+//  background: green;
+//}
+//
+//
+//.hover-anchor {
+//  display: inline-block;
+//  background: yellow;
+//  padding: 8px;
+//}
 
 .tooltip-wrapper {
-  padding: 8px;
-  background: rgba(0,0,0,0.7);
+  //padding: 8px;
+  background: blue;
   color: white;
   border-radius: 2px;
-  margin: 8px;
+  //margin: 8px;
   font-size: 12px;
+  position: relative;
+  //top: -5px;
+  right: 450px;
+  width: 300px;
 }
+
