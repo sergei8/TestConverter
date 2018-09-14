@@ -1,6 +1,7 @@
 //todo сделать HELP
 //todo исправить PopOver
 //todo совершенствовать синтаксический анализатор
+//todo сделать плавающую кнопку `наверх`
 
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule, NO_ERRORS_SCHEMA} from '@angular/core';
