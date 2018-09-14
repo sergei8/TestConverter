@@ -1,4 +1,3 @@
-//todo перерисоывать/перегружать файл, если изменен конфиг
 
 import {Component, Input} from '@angular/core';
 import {TestItem} from '../../../shared/interfaces';
@@ -19,7 +18,7 @@ export class TestItemComponent {
   }
 
   /**
-   * меняет значение ответа, когда с экрана сделана корректировка
+   * меняет конртент ответа, когда с экрана сделана корректировка
    * @param event - параметры события `change`
    * @param i - порядковый номер ответа
    */
@@ -36,11 +35,13 @@ export class TestItemComponent {
   }
 
   //todo сделать автофит под размер окна - пока не используется
+/*
   public adjustTextSize(textLengh: number): string {
     // console.log(textLengh);
     // console.log(window.innerWidth);
     return '500px';
   }
+*/
 
   showErrorPopover(message): void {
     this.showError = !this.showError;

@@ -2,7 +2,7 @@
 //todo исправить PopOver
 //todo проверять каждый вопрос после корректировки и менять его статус
 //todo совершенствовать синтаксический анализатор
-//todo сделать плавающую кнопку `наверх`
+//todo сделать внизу кнопку `наверх`
 
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule, NO_ERRORS_SCHEMA} from '@angular/core';
