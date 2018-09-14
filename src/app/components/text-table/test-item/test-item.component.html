@@ -1,5 +1,3 @@
-<!--todo сделать вывод statusMessage при наведении курсора на  item-->
-<!--https://github.com/ncstate-sat/popover#satpopoveranchor-has-the-following-methods-and-outputs-->
 
 <div [ngClass]="setItemClass(testItem.statusBad)">
   <div id="test-item-grid">
@@ -14,8 +12,9 @@
     <div id="getMessage" *ngIf="testItem.statusBad"
     ngbPopover={{testItem.statusMessage}} placement="left"
     >
-      <i class="fa fa-exclamation-circle fa-2x" style="color: red"></i>
-      <!--<app-error-message *ngIf="showError"></app-error-message>-->
+      <i class="fa fa-exclamation-circle fa-2x"
+         style="color: red; padding-top: 5px">
+      </i>
     </div>
   </div>
 

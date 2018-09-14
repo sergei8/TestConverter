@@ -25,3 +25,8 @@
 li, #number {
   color: darkgray;
 }
+
+#number {
+  padding-left: 5px;
+  padding-top: 2px;
+}

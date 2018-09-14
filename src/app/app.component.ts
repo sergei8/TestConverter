@@ -11,7 +11,7 @@ import {DataService} from './shared/data-service';
 })
 export class AppComponent implements OnInit {
 
-  constructor(private configService: ConfigService,
+  constructor(public configService: ConfigService,
               private modalService: ModalDialogService,
               private viewRef: ViewContainerRef,
               public dataservice: DataService) {

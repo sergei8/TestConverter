@@ -50,7 +50,10 @@ export class SaveTestComponent {
     mask.forEach(symbol => {
       const regExp = new RegExp(symbol, 'gi');
       try {
-        item = item.replace(regExp, `\\${symbol}`);
+        // отсекаем `undefined` items
+        if (item) {
+          item = item.replace(regExp, `\\${symbol}`);
+        }
       } catch (e) {
         console.log(item);
         alert(`Что-то пошло не так:\n${e.message}`);
