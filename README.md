@@ -4,6 +4,6 @@
  
  ---
  
-Использованный фреймворк - __Angular 4+__
+Использованный фреймворк - __Angular 7__
 
 Доступ к сайту по [ссылке](https://sergei8.github.io/TestConverter-site/)
